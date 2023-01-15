@@ -1,0 +1,5 @@
+<div class="grid">
+    <h1>Categorias</h1>
+    <button [routerLink]="['/','createCategoria']">Agregar Categoria</button>
+    <app-categoria [dataEntrante]="categoria" *ngFor="let categoria of categorias"></app-categoria>
+</div>

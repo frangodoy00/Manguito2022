@@ -1,0 +1,7 @@
+<h1 style="text-align: center;">MANGUITO</h1>
+
+<app-header></app-header>
+<div class="grid">
+    <app-emprendimiento [routerLink]="['/','emprendimiento',emprendimiento?.id]" [dataEntrante]="emprendimiento"
+     *ngFor="let emprendimiento of emprendimientos"></app-emprendimiento>
+</div>

@@ -1,0 +1,16 @@
+<h1>Creacion Emprendimiento</h1>
+<div>
+    <form [formGroup]="form" (submit)="crear()">
+        <label>Dominio: </label>
+        <input formControlName="dominio" type="text" name="dominio" placeholder="Dominio">
+        <br>
+        <br>
+        <label>Password: </label>
+		<input formControlName="password" type="password" name="password" placeholder="Contraseña">
+        <br>
+        <br>
+        <button type="submit">Crear</button>
+        <br>
+        <br>
+    </form>
+</div>

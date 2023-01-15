@@ -1,0 +1,17 @@
+<h1>REGISTRO DE USUARIO</h1>
+<div>
+    <form [formGroup]="form" (submit)="registro()">
+        <label>Username: </label>
+        <input formControlName="username" type="text" name="username" placeholder="Usuario" required>
+        <br>
+        <br>
+        <label>Password: </label>
+		<input formControlName="password" type="password" name="password" placeholder="Contraseña" required>
+        <br>
+        <br>
+        <button type="submit">REGISTRARSE</button>
+        <br>
+        <br>
+        <h4 *ngIf="registrado" style="color: green;">Se ha registrado correctamente el usuario</h4>
+    </form>
+</div>

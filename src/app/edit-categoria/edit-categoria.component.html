@@ -1,0 +1,11 @@
+<h1>Editar Categoria</h1>
+<div>
+    <form [formGroup]="form" (submit)="edit()">
+        <label>Nombre: </label>
+        <input formControlName="nombre" type="text" name="nombre" required>
+        <br>
+        <br>
+        <button type="submit">Editar</button>
+        <button [routerLink]="['/','categorias']" type="button">Cancelar</button>
+    </form>
+</div>

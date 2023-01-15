@@ -1,0 +1,15 @@
+<div>
+    <h3>Nombre: {{respuesta.nombre}}</h3>
+    <h3>Dominio: {{respuesta.dominio}}</h3>
+    <h3>Descripcion: {{respuesta.descripcion}}</h3>
+    <h3>Precio por manguito: {{respuesta.precioPorManguito}}</h3>
+    <h3>Manguitos recibidos: {{respuesta.manguitosRecibidos}}</h3>
+    <h3>Redes Sociales:</h3>
+    <tr *ngFor="let red of redes">
+        <li>{{red.nombre}}: {{red.url}}</li>
+    </tr>
+    <h3>Categorias:</h3>
+    <tr *ngFor="let cat of categorias">
+        <li>{{cat.nombre}}</li>
+    </tr>
+</div>

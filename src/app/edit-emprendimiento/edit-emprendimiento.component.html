@@ -1,0 +1,23 @@
+<h1>Modificar Emprendimiento</h1>
+<div>
+    <form [formGroup]="form" (submit)="edit()">
+        <label>Nombre: </label>
+        <input formControlName="nombre" type="text" name="nombre" placeholder="Nombre">
+        <br>
+        <br>
+        <label>Password: </label>
+		<input formControlName="password" type="password" name="password" placeholder="Contraseña">
+        <br>
+        <br>
+        <label>Descripcion: </label>
+		<input formControlName="descripcion" type="text" name="descripcion" placeholder="Descripcion">
+        <br>
+        <br>
+        <label>Precio por Manguito: </label>
+		<input formControlName="precioPorManguito" type="text" name="precioPorManguito" placeholder="PrecioPorManguito">
+        <br>
+        <br>
+        <button type="submit">Modificar</button>
+        <button [routerLink]="['/']" type="button">Cancelar</button>
+    </form>
+</div>

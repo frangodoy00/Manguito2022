@@ -1,0 +1,17 @@
+<h1>Logearse</h1>
+<div>
+    <form [formGroup]="form" (submit)="login()">
+        <label>Username: </label>
+        <input formControlName="username" type="text" name="username" placeholder="Usuario">
+        <br>
+        <br>
+        <label>Password: </label>
+		<input formControlName="password" type="password" name="password" placeholder="Contraseña">
+        <br>
+        <br>
+        <button type="submit">Iniciar Sesion</button>
+        <br>
+        <br>
+        <h4 *ngIf="log" style="color: red;">Informacion incorrecta</h4>
+    </form>
+</div>

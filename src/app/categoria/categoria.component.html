@@ -1,0 +1,9 @@
+<div class="categoria">
+    <div class="wrapper-text">
+    <br>
+    <br>
+    <div class="title">{{dataEntrante?.nombre}}</div>
+    <button [routerLink]="['/','editCategoria',dataEntrante?.id]">Modificar</button>
+    <button type="button" (click)="eliminar(dataEntrante?.id)">Eliminar</button>
+    </div>
+</div>

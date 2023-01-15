@@ -1,0 +1,13 @@
+<h1>Creacion Categoria</h1>
+<div>
+    <form [formGroup]="form" (submit)="create()">
+        <label>Nombre: </label>
+        <input formControlName="nombre" type="text" name="nombre" placeholder="Nombre" required>
+        <br>
+        <br>
+        <button type="submit">Crear</button>
+        <br>
+        <br>
+        <h4 *ngIf="creado" style="color: green;">Se ha creado correctamente la categoria</h4>
+    </form>
+</div>

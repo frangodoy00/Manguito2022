@@ -16,8 +16,26 @@
         <label>Precio por Manguito: </label>
 		<input formControlName="precioPorManguito" type="text" name="precioPorManguito" placeholder="PrecioPorManguito">
         <br>
+        
         <br>
         <button type="submit">Modificar</button>
         <button [routerLink]="['/']" type="button">Cancelar</button>
+
+        <div *ngIf="invalido" class="text-danger">
+
+            <div *ngIf="form.controls['nombre'].errors?.['required']">
+                dominio es requerido
+            </div>
+            <div *ngIf="form.controls['password'].errors?.['required']">
+                password es requerido
+            </div>
+            <div *ngIf="form.controls['descripcion'].errors?.['required']">
+                password es requerido
+            </div>
+            <div *ngIf="form.controls['precioPorManguito'].errors?.['required']">
+                password es requerido
+            </div>
+        </div>
+
     </form>
 </div>

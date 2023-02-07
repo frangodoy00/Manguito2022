@@ -18,7 +18,7 @@ export class EditCategoriaComponent implements OnInit{
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nombre: ['', Validators.required]
+      nombre: ['', [Validators.required]]
     })
     this.route.paramMap.subscribe( (paramMap:any) => {
       const {params} = paramMap
@@ -28,7 +28,12 @@ export class EditCategoriaComponent implements OnInit{
   }
 
   edit(){
-    this.RestService.put('http://localhost:9000/demo/manguito/categoria/'+this.id,
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.RestService.put('http://localhost:8080/demo/manguito/categoria/'+this.id,
     {
       nombre: this.form.value.nombre
     })

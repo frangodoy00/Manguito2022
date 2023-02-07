@@ -1,17 +1,25 @@
 <h1>REGISTRO DE USUARIO</h1>
 <div>
-    <form [formGroup]="form" (submit)="registro()">
+    <form [formGroup]="form" (ngSubmit)="registro()" novalidate>
         <label>Username: </label>
         <input formControlName="username" type="text" name="username" placeholder="Usuario" required>
         <br>
         <br>
-        <label>Password: </label>
+        <label>Password:</label>
 		<input formControlName="password" type="password" name="password" placeholder="Contraseña" required>
         <br>
         <br>
         <button type="submit">REGISTRARSE</button>
         <br>
         <br>
+
+
+        <div *ngIf="invalido" class="text-danger">
+
+            <div *ngIf="form.controls['username'].errors?.['required']">
+                Todos los campos son requeridos
+            </div>
+        </div>
         <h4 *ngIf="registrado" style="color: green;">Se ha registrado correctamente el usuario</h4>
     </form>
 </div>

@@ -12,18 +12,26 @@ export class CreateCategoriaComponent implements OnInit{
   public respuesta:any = [];
   public form!: FormGroup;
   public creado:boolean=false;
+  public invalido:boolean=false;
 
+  
   constructor(private route:ActivatedRoute, private RestService:RestService,
     private formBuilder:FormBuilder){}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nombre: ['', Validators.required]
+      nombre: ['', [Validators.required]]
     })
   }
 
   create(){
-    this.RestService.post('http://localhost:9000/demo/manguito/createCategoria',
+    
+    if (this.form.invalid) {
+      this.invalido = true;
+      return;
+    }
+
+    this.RestService.post('http://localhost:8080/demo/manguito/createCategoria',
     {
       nombre: this.form.value.nombre
     })

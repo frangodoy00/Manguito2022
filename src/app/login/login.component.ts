@@ -18,22 +18,29 @@ export class LoginComponent implements OnInit{
   public log:boolean=false;
   public emprendimiento:any;
   public usuario:any;
+  public invalido:boolean=false;
+
 
   constructor(private route:ActivatedRoute, private RestService:RestService,
     private formBuilder:FormBuilder, private router:Router){}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     })
   }
 
   login(){
+
+    if (this.form.invalid) {
+      this.invalido = true;
+      return;
+    }
     this.username=this.form.value.username;
     this.password=this.form.value.password;
 
-    this.RestService.get('http://localhost:9000/demo/manguito/login?username='+this.username+'&password='+this.password)
+    this.RestService.get('http://localhost:8080/demo/manguito/login?username='+this.username+'&password='+this.password)
     .subscribe(respuesta => {
       this.logeado=true;
       console.log('logeado');

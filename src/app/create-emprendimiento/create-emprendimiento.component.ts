@@ -13,14 +13,15 @@ export class CreateEmprendimientoComponent implements OnInit{
   public form!: FormGroup;
   public usuario:any;
   public id: string ='';
+  public invalido:boolean=false;
 
   constructor(private route:ActivatedRoute, private RestService:RestService,
     private formBuilder:FormBuilder, private router:Router){}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      dominio: ['', Validators.required],
-      password: ['', Validators.required]
+      dominio: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     })
   }
 
@@ -32,7 +33,13 @@ export class CreateEmprendimientoComponent implements OnInit{
   }
 
   create(id:string){
-    this.RestService.post('http://localhost:9000/demo/manguito/createEmprendimiento/'+id,
+  
+    if (this.form.invalid) {
+      this.invalido = true;
+      return;
+    }
+
+    this.RestService.post('http://localhost:8080/demo/manguito/createEmprendimiento/'+id,
     {
       dominio: this.form.value.dominio,
       password: this.form.value.password

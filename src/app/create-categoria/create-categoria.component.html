@@ -8,6 +8,14 @@
         <button type="submit">Crear</button>
         <br>
         <br>
+        
+        <div *ngIf="invalido" class="text-danger">
+
+            <div *ngIf="form.controls['nombre'].errors?.['required']">
+                Todos los campos son requeridos
+            </div>
+        </div>
+
         <h4 *ngIf="creado" style="color: green;">Se ha creado correctamente la categoria</h4>
     </form>
 </div>

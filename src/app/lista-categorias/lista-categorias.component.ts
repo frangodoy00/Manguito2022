@@ -19,7 +19,7 @@ export class ListaCategoriasComponent implements OnInit{
   }
 
   public cargarData(){
-    this.RestService.get('http://localhost:9000/demo/manguito/getListaCategorias')
+    this.RestService.get('http://localhost:8080/demo/manguito/getListaCategorias')
     .subscribe(respuesta => {
       this.categorias = respuesta;
     })

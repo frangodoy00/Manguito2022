@@ -25,7 +25,7 @@ export class InfoEmprendimientoComponent implements OnInit {
   }
 
   cargarData(id:string){
-    this.RestService.get('http://localhost:9000/demo/manguito/getEmprendimiento/'+id)
+    this.RestService.get('http://localhost:8080/demo/manguito/getEmprendimiento/'+id)
     .subscribe(respuesta => {
         this.respuesta = respuesta;
         this.redes = this.respuesta.redesSociales;

@@ -17,20 +17,27 @@ export class EditEmprendimientoComponent implements OnInit {
   public usuario:any;
   public emprendimiento:any;
   public dominio:string='';
+  public invalido:boolean=false;
 
   constructor(private router:Router, private route:ActivatedRoute, private RestService:RestService,
     private formBuilder:FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      password: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      precioPorManguito: ['', Validators.required],
+      nombre: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      descripcion: ['', [Validators.required]],
+      precioPorManguito: ['', [Validators.required]],
     })
   }
 
   edit(){
+
+    if (this.form.invalid) {
+      this.invalido = true;
+      return;
+    }
+
     this.usuario = localStorage.getItem('usuario');
     this.usuario = JSON.parse(this.usuario);
     this.idUsuario = this.usuario.id;
@@ -39,7 +46,7 @@ export class EditEmprendimientoComponent implements OnInit {
     this.idEmprendimiento = this.emprendimiento.id;
     this.dominio = this.emprendimiento.dominio;
 
-    this.RestService.put('http://localhost:9000/demo/manguito/emprendimiento/'+this.idEmprendimiento+'/'+this.idUsuario,
+    this.RestService.put('http://localhost:8080/demo/manguito/emprendimiento/'+this.idEmprendimiento+'/'+this.idUsuario,
     {
       dominio: this.dominio,
       nombre: this.form.value.nombre,

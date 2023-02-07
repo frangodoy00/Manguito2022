@@ -20,7 +20,7 @@ export class CategoriaComponent implements OnInit {
 
   eliminar(id:string){
     console.log(id);
-    this.RestService.delete('http://localhost:9000/demo/manguito/deleteCategoria/'+id)
+    this.RestService.delete('http://localhost:8080/demo/manguito/deleteCategoria/'+id)
     .subscribe(respuesta => {
         this.respuesta = respuesta;
     })

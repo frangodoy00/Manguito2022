@@ -79,3 +79,16 @@ textarea{
 	text-align: center;
 	align-self: center;
 }
+
+.divB
+{
+	float:left;
+	border:1px solid black;
+	width: auto;
+	height: auto;
+	margin:20px;
+	padding:3px;
+	background:rgb(232, 243, 109);
+	text-align: center;
+	align-self: center;
+}

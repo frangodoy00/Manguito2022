@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateCategoriaComponent } from './create-categoria/create-categoria.component';
 import { CreateEmprendimientoComponent } from './create-emprendimiento/create-emprendimiento.component';
+import { CreateRedComponent } from './create-red/create-red.component';
 import { EditCategoriaComponent } from './edit-categoria/edit-categoria.component';
 import { EditEmprendimientoComponent } from './edit-emprendimiento/edit-emprendimiento.component';
 import { HomeComponent } from './home/home.component';
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path:'editCategoria/:id',
     component:EditCategoriaComponent 
+  },
+  {
+    path:'createRed',
+    component:CreateRedComponent 
   }
 ];
 

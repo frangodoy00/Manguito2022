@@ -1,29 +1,44 @@
+<app-header></app-header>
 <h1>Modificar Emprendimiento</h1>
 <div>
     <form [formGroup]="form" (submit)="edit()">
-        <label>Nombre: </label>
-        <input formControlName="nombre" type="text" name="nombre" placeholder="Nombre">
+        <label>Dominio: </label>
+        <input formControlName="dominio" type="text" name="dominio" placeholder={{respuesta.dominio}}>
         <br>
         <br>
         <label>Password: </label>
-		<input formControlName="password" type="password" name="password" placeholder="Contraseña">
+		<input formControlName="password" type="password" name="password" placeholder={{respuesta.password}}>
         <br>
         <br>
         <label>Descripcion: </label>
-		<input formControlName="descripcion" type="text" name="descripcion" placeholder="Descripcion">
+		<input formControlName="descripcion" type="text" name="descripcion" placeholder={{respuesta.descripcion}}>
         <br>
         <br>
         <label>Precio por Manguito: </label>
-		<input formControlName="precioPorManguito" type="text" name="precioPorManguito" placeholder="PrecioPorManguito">
+		<input formControlName="precioPorManguito" type="text" name="precioPorManguito" placeholder={{respuesta.precioPorManguito}}>
         <br>
         
+        <h3>Categorias:</h3>
+        <p>
+            <select name="miselect" [(ngModel)]="seleccionados" multiple="multiple">
+            <option value={{item}} *ngFor="let item of Categorias">{{item.nombre}}</option>
+            </select>
+        </p>
+        <br>
+        <h3>Redes Sociales:</h3>
+        <tr *ngFor="let red of respuesta.redesSociales">
+            <li>{{red.nombre}}: {{red.url}} <button value={{red.id}} (submit)="eliminar()">Eliminar</button></li> 
+        </tr>
+        <br>
+        <button [routerLink]="['/','createRed']">Agregar Red Social</button>
+        <br>
         <br>
         <button type="submit">Modificar</button>
         <button [routerLink]="['/']" type="button">Cancelar</button>
 
         <div *ngIf="invalido" class="text-danger">
 
-            <div *ngIf="form.controls['nombre'].errors?.['required']">
+            <div *ngIf="form.controls['dominio'].errors?.['required']">
                 dominio es requerido
             </div>
             <div *ngIf="form.controls['password'].errors?.['required']">
@@ -38,4 +53,6 @@
         </div>
 
     </form>
+
+
 </div>

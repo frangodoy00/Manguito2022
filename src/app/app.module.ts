@@ -16,7 +16,8 @@ import { EditCategoriaComponent } from './edit-categoria/edit-categoria.componen
 import { CreateEmprendimientoComponent } from './create-emprendimiento/create-emprendimiento.component';
 import { EditEmprendimientoComponent } from './edit-emprendimiento/edit-emprendimiento.component';
 import { CreateCategoriaComponent } from './create-categoria/create-categoria.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateRedComponent } from './create-red/create-red.component';
 
 
 @NgModule({
@@ -33,13 +34,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     EditCategoriaComponent,
     CreateEmprendimientoComponent,
     EditEmprendimientoComponent,
-    CreateCategoriaComponent
+    CreateCategoriaComponent,
+    CreateRedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,28 @@
+<app-header></app-header>
+<h1>Agrega tu Red Social!</h1>
+<div>
+    <form [formGroup]="form" (submit)="crear()">
+        <label>Nombre: </label>
+        <input formControlName="nombre" type="text" name="nombre" placeholder="Nombre">
+        <br>
+        <br>
+        <label>Url: </label>
+		<input formControlName="url" type="url" name="text" placeholder="Url">
+        <br>
+        <br>
+        <button type="submit">Crear</button>
+        <br>
+        <br>
+
+        <div *ngIf="invalido" class="text-danger">
+
+            <div *ngIf="form.controls['nombre'].errors?.['required']">
+                Nombre es requerido
+            </div>
+            <div *ngIf="form.controls['url'].errors?.['required']">
+                Url es requerido
+            </div>
+        </div>
+
+    </form>
+</div>

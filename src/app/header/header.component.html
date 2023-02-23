@@ -1,9 +1,11 @@
+<h1 style="text-align: center;">MANGUITO</h1>
 <div class="header">
     <ul class="menu">
         <li *ngIf="rol !== 'Administrador' && rol !== 'Emprendedor'" [routerLink]="['/','login']">Iniciar Sesion</li>
         <li *ngIf="rol == 'Administrador'" [routerLink]="['/','categorias']">Categorias</li>
         <li *ngIf="rol == 'Emprendedor' && emprendimiento == 'null'" [routerLink]="['/','createEmprendimiento']">Crear Emprendimiento</li>
         <li *ngIf="rol == 'Emprendedor' && emprendimiento !== 'null'" [routerLink]="['/','editEmprendimiento']">Editar Emprendimiento</li>
+        <li style="text-align:center;" [routerLink]="['/']" >Inicio</li>
         <li *ngIf="rol !== 'Administrador' && rol !== 'Emprendedor'" [routerLink]="['/','registrarse']">Registrarse</li>
         <li *ngIf="rol == 'Emprendedor' || rol == 'Administrador'" (click)="cerrarSesion()">Cerra Sesion</li>
     </ul>
